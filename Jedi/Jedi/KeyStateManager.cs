@@ -10,78 +10,52 @@ namespace Jedi
 {
 	public class KeyStateManager
 	{
-		private readonly Keys[] comboKeys = new[]
-		                                    	{
-		                                    		Keys.Control, Keys.ControlKey, Keys.Alt, Keys.Shift, Keys.ShiftKey, Keys.LWin,
-		                                    		Keys.RWin
-		                                    	};
-
 		private readonly Dictionary<Keys, bool> keyStates = new Dictionary<Keys, bool>();
 
 		private readonly bool visualStudioOnly = Settings.Default.VisualStudioOnly;
 		private bool isSystemKeyDown;
-
-		private Keys[] specialSingleKeys = new[]
-		                                   	{
-		                                   		Keys.F1, Keys.F2, Keys.F3, Keys.F4, Keys.F5, Keys.F6, Keys.F7, Keys.F8, Keys.F9,
-		                                   		Keys.F10, Keys.F11, Keys.F12
-		                                   	};
-
 		public delegate void ShorcutDelegate(string msg);
 
 		public KeyStateManager()
 		{
-			InitSpecialSingleKeys();
+			InitializeConfigurableSpecialSingleKeys();
 		}
 
 		public void Input(KeyboardEvents kEvents, Keys currentKey)
 		{
-			if (!visualStudioOnly || NativeHelpers.ActiveApplTitle().Contains("Microsoft Visual Studio"))
+			if (visualStudioOnly && !NativeHelpers.ActiveApplTitle().Contains("Microsoft Visual Studio"))
 			{
-				if (((kEvents == KeyboardEvents.SystemKeyDown) || (kEvents == KeyboardEvents.KeyDown)) &&
-				    isSpecialKey(comboKeys, currentKey))
-				{
-					keyStates[currentKey] = true;
-					isSystemKeyDown = true;
-				}
-				if (((kEvents == KeyboardEvents.SystemKeyUp) || (kEvents == KeyboardEvents.KeyUp)) &&
-				    isSpecialKey(comboKeys, currentKey))
-				{
-					keyStates[currentKey] = false;
-					isSystemKeyDown = AreAllSystemKeysDown(keyStates);
-				}
-				if (((kEvents == KeyboardEvents.SystemKeyDown) || (kEvents == KeyboardEvents.KeyDown)) &&
-				    (!isSpecialKey(comboKeys, currentKey) && isSystemKeyDown))
-				{
-					ShortcutActivated(BuildKeyMessage(keyStates, currentKey));
-				}
-				else if ((kEvents == KeyboardEvents.KeyDown) && isSpecialSingleKey(currentKey))
-				{
-					ShortcutActivated(BuildKeyMessage(keyStates, currentKey));
-				}
+				return;
+			}
+
+			if (((kEvents == KeyboardEvents.SystemKeyDown) || (kEvents == KeyboardEvents.KeyDown)) &&
+			    currentKey.IsComboKey())
+			{
+				keyStates[currentKey] = true;
+				isSystemKeyDown = true;
+			}
+			if (((kEvents == KeyboardEvents.SystemKeyUp) || (kEvents == KeyboardEvents.KeyUp)) &&
+			    currentKey.IsComboKey())
+			{
+				keyStates[currentKey] = false;
+				isSystemKeyDown = AreAllSystemKeysDown(keyStates);
+			}
+			if (((kEvents == KeyboardEvents.SystemKeyDown) || (kEvents == KeyboardEvents.KeyDown)) &&
+			    (!currentKey.IsComboKey() && isSystemKeyDown))
+			{
+				ShortcutActivated(BuildKeyMessage(keyStates, currentKey));
+			}
+			else if ((kEvents == KeyboardEvents.KeyDown) && currentKey.IsSpecialSingleKey())
+			{
+				ShortcutActivated(BuildKeyMessage(keyStates, currentKey));
 			}
 		}
 
 		public event ShorcutDelegate ShortcutActivated;
 
-		private void AppendToArray(Keys[] appendArr, ref Keys[] targetArr)
-		{
-			Keys[] array = new Keys[specialSingleKeys.Length + appendArr.Length];
-			specialSingleKeys.CopyTo(array, 0);
-			appendArr.CopyTo(array, 0);
-			targetArr = array;
-		}
-
 		private bool AreAllSystemKeysDown(Dictionary<Keys, bool> states)
 		{
-			foreach (KeyValuePair<Keys, bool> pair in states)
-			{
-				if (pair.Value)
-				{
-					return true;
-				}
-			}
-			return false;
+			return states.Any(pair => pair.Value);
 		}
 
 		private string BuildKeyMessage(Dictionary<Keys, bool> states, Keys key)
@@ -99,40 +73,22 @@ namespace Jedi
 			return builder.ToString();
 		}
 
-		private void InitSpecialSingleKeys()
+		private void InitializeConfigurableSpecialSingleKeys()
 		{
 			if (Settings.Default.ShowTabs)
 			{
-				Keys[] appendArr = new[] {Keys.Tab};
-				AppendToArray(appendArr, ref specialSingleKeys);
+				Keys.Tab.AddToSpecialSingleKeys();
 			}
 			if (Settings.Default.ShowEnter)
 			{
-				Keys[] keysArray2 = new[] {Keys.Return, Keys.Return};
-				AppendToArray(keysArray2, ref specialSingleKeys);
+				Keys.Return.AddToSpecialSingleKeys();
+				Keys.Enter.AddToSpecialSingleKeys();
 			}
 			if (Settings.Default.ShowPageUpDown)
 			{
-				Keys[] keysArray3 = new[] {Keys.Next, Keys.Prior};
-				AppendToArray(keysArray3, ref specialSingleKeys);
+				Keys.Next.AddToSpecialSingleKeys();
+				Keys.Prior.AddToSpecialSingleKeys();
 			}
-		}
-
-		private bool isSpecialKey(Keys[] specialKeys, Keys currentKey)
-		{
-			foreach (Keys keys in specialKeys)
-			{
-				if (keys == currentKey)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		private bool isSpecialSingleKey(Keys key)
-		{
-			return specialSingleKeys.Any(keys => keys == key);
 		}
 	}
 }

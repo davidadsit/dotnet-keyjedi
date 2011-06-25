@@ -1,10 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace JediModel
 {
 	public static class KeyExtensions
 	{
+		private static readonly List<Keys> comboKeys =
+			new List<Keys>
+				{
+					Keys.Control,
+					Keys.ControlKey,
+					Keys.Alt,
+					Keys.Shift,
+					Keys.ShiftKey,
+					Keys.LWin,
+					Keys.RWin
+				};
+
 		private static readonly Dictionary<Keys, string> displayNames =
 			new Dictionary<Keys, string>
 				{
@@ -45,6 +58,29 @@ namespace JediModel
 					{Keys.Control, "Ctrl"}
 				};
 
+		private static readonly List<Keys> specialSingleKeys =
+			new List<Keys>
+				{
+					Keys.F1,
+					Keys.F2,
+					Keys.F3,
+					Keys.F4,
+					Keys.F5,
+					Keys.F6,
+					Keys.F7,
+					Keys.F8,
+					Keys.F9,
+					Keys.F10,
+					Keys.F11,
+					Keys.F12
+				};
+
+		public static void AddToSpecialSingleKeys(this Keys keys)
+		{
+			specialSingleKeys.Add(keys);
+		}
+
+
 		public static string DisplayName(this Keys keys)
 		{
 			if (displayNames.ContainsKey(keys))
@@ -52,6 +88,17 @@ namespace JediModel
 				return displayNames[keys];
 			}
 			return keys.ToString();
+		}
+
+		public static bool IsComboKey(this Keys currentKey)
+		{
+			return comboKeys.Any(x => x == currentKey);
+		}
+
+
+		public static bool IsSpecialSingleKey(this Keys keys)
+		{
+			return specialSingleKeys.Any(x => x == keys);
 		}
 	}
 }
