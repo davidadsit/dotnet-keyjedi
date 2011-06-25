@@ -7,11 +7,11 @@ namespace Jedi
 {
 	public class MouseDisabler
 	{
-		private readonly Form dockRootForm;
+		private readonly IMainFormView dockRootForm;
 		private readonly Timer timer = new Timer(50.0);
 		private string appTitleToDisableOn;
 
-		public MouseDisabler(Form dockRootForm)
+		public MouseDisabler(IMainFormView dockRootForm)
 		{
 			this.dockRootForm = dockRootForm;
 			timer.Elapsed += timer_Elapsed;

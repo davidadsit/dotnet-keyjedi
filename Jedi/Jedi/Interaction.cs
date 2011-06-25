@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Jedi
+namespace JediUI
 {
 	public static class Interaction
 	{
@@ -44,7 +44,6 @@ namespace Jedi
 			form.AcceptButton = buttonOk;
 			form.CancelButton = buttonCancel;
 			form.StartPosition = FormStartPosition.CenterParent;
-
 
 			//form.Location = new Point(p.X,p.Y);
 

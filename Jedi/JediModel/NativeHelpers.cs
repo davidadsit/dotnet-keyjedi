@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Jedi
 {
-	internal class NativeHelpers
+	public class NativeHelpers
 	{
 		public static string ActiveApplTitle()
 		{

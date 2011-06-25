@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using JediUI;
 
 namespace Jedi
 {
@@ -10,7 +11,7 @@ namespace Jedi
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(new MainForm());
 		}
 	}
 }

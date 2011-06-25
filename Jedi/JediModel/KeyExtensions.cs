@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 
-namespace JediModel
+namespace Jedi
 {
 	public static class KeyExtensions
 	{
@@ -80,7 +80,6 @@ namespace JediModel
 			specialSingleKeys.Add(keys);
 		}
 
-
 		public static string DisplayName(this Keys keys)
 		{
 			if (displayNames.ContainsKey(keys))
@@ -94,7 +93,6 @@ namespace JediModel
 		{
 			return comboKeys.Any(x => x == currentKey);
 		}
-
 
 		public static bool IsSpecialSingleKey(this Keys keys)
 		{

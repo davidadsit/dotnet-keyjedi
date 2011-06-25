@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Jedi.Properties;
-using JediModel;
+using Jedi;
+using JediUI.Properties;
 using Kennedy.ManagedHooks;
 
-namespace Jedi
+namespace JediUI
 {
 	public class KeyStateManager
 	{
@@ -14,6 +14,7 @@ namespace Jedi
 
 		private readonly bool visualStudioOnly = Settings.Default.VisualStudioOnly;
 		private bool isSystemKeyDown;
+
 		public delegate void ShorcutDelegate(string msg);
 
 		public KeyStateManager()

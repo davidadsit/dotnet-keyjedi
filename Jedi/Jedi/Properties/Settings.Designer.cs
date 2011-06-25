@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jedi.Properties {
+namespace JediUI.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -79,15 +79,6 @@ namespace Jedi.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\tTahoma, 18pt, style=Bold\r\n\t\t\t")]
-        public global::System.Drawing.Font ListFont {
-            get {
-                return ((global::System.Drawing.Font)(this["ListFont"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("WindowText")]
         public global::System.Drawing.Color ForeColor {
             get {
@@ -101,6 +92,15 @@ namespace Jedi.Properties {
         public global::System.Drawing.Color BackColor {
             get {
                 return ((global::System.Drawing.Color)(this["BackColor"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tahoma, 18pt, style=Bold")]
+        public global::System.Drawing.Font ListFont {
+            get {
+                return ((global::System.Drawing.Font)(this["ListFont"]));
             }
         }
     }

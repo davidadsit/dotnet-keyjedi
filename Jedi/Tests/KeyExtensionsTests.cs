@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using JediModel;
+using Jedi;
 using NUnit.Framework;
 
 namespace Tests
@@ -7,16 +7,16 @@ namespace Tests
 	[TestFixture]
 	public class KeyExtensionsTests
 	{
-		[Test]
-		public void ControlKeys_are_ComboKeys()
+		[TestCase(Keys.Control)]
+		[TestCase(Keys.ControlKey)]
+		[TestCase(Keys.Alt)]
+		[TestCase(Keys.Shift)]
+		[TestCase(Keys.ShiftKey)]
+		[TestCase(Keys.LWin)]
+		[TestCase(Keys.RWin)]
+		public void ControlKeys_are_ComboKeys(Keys keys)
 		{
-			Assert.IsTrue(Keys.Control.IsComboKey());
-			Assert.IsTrue(Keys.ControlKey.IsComboKey());
-			Assert.IsTrue(Keys.Alt.IsComboKey());
-			Assert.IsTrue(Keys.Shift.IsComboKey());
-			Assert.IsTrue(Keys.ShiftKey.IsComboKey());
-			Assert.IsTrue(Keys.LWin.IsComboKey());
-			Assert.IsTrue(Keys.RWin.IsComboKey());
+			Assert.IsTrue(keys.IsComboKey());
 		}
 
 		[Test]
@@ -31,23 +31,22 @@ namespace Tests
 			Assert.AreEqual("Winkey", Keys.LWin.DisplayName());
 		}
 
-		[Test]
-		public void FunctionKeys_are_SpecialSingleKeys()
+		[TestCase(Keys.F1)]
+		[TestCase(Keys.F2)]
+		[TestCase(Keys.F3)]
+		[TestCase(Keys.F4)]
+		[TestCase(Keys.F5)]
+		[TestCase(Keys.F6)]
+		[TestCase(Keys.F7)]
+		[TestCase(Keys.F8)]
+		[TestCase(Keys.F9)]
+		[TestCase(Keys.F10)]
+		[TestCase(Keys.F11)]
+		[TestCase(Keys.F12)]
+		public void FunctionKeys_are_SpecialSingleKeys(Keys keys)
 		{
-			Assert.IsTrue(Keys.F1.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F2.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F3.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F4.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F5.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F6.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F7.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F8.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F9.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F10.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F11.IsSpecialSingleKey());
-			Assert.IsTrue(Keys.F12.IsSpecialSingleKey());
+			Assert.IsTrue(keys.IsSpecialSingleKey());
 		}
-
 
 		[Test]
 		public void SpecialSingleKeys_can_be_added()
