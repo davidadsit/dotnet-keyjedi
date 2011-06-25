@@ -1,6 +1,6 @@
 Using Keyboard Jedi - 1 minute guide
-By Roy Osherove (Roy@Osherove.com)
-Blog: www.ISerializable.com
+By Roy Osherove (Roy at Osherove.com)
+Blog: www.osherove.com
 ---------------------
 You may use and distribute this program freely as long as you do not change it in any way,
 including credits and associated text files.
