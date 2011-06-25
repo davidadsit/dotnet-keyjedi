@@ -1,0 +1,7 @@
+Key Jedi
+By Roy Osherove (Roy@Osherove.com)
+Blog: www.ISerializable.com
+---------------------
+You may use and distribute this program freely 
+as long as you do not change it in any way,
+including credits and associated text files.
