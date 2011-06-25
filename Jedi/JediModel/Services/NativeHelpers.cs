@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Jedi
+namespace Jedi.Services
 {
 	public class NativeHelpers
 	{

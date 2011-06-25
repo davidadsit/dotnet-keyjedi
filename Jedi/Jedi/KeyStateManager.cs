@@ -3,6 +3,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Jedi;
+using Jedi.Entities;
+using Jedi.Services;
 using JediUI.Properties;
 using Kennedy.ManagedHooks;
 

@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using Jedi;
+using Jedi.Services;
 using JediUI.Properties;
 
 namespace JediUI

@@ -1,8 +1,10 @@
-﻿using Jedi;
+﻿using Jedi.Presenters;
+using Jedi.Services;
+using Jedi.Views;
 using Moq;
 using NUnit.Framework;
 
-namespace Tests
+namespace Tests.Presenters
 {
 	[TestFixture]
 	public class MainFormPresenterTests

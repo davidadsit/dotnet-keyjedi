@@ -1,4 +1,5 @@
 ﻿using Jedi;
+using Jedi.Views;
 
 namespace JediUI
 {

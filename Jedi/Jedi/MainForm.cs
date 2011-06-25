@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Jedi;
+using Jedi.Presenters;
+using Jedi.ViewModels;
+using Jedi.Views;
 using JediUI.Properties;
 using Kennedy.ManagedHooks;
 
@@ -30,7 +33,7 @@ namespace JediUI
 			keyboardHook.InstallHook();
 		}
 
-		public void DisplayKeys(List<KeyViewModel> keys)
+		public void DisplayKeys(IEnumerable<KeyViewModel> keys)
 		{
 			KeysListView.Items.Clear();
 			foreach (var key in keys)

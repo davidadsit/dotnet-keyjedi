@@ -1,9 +1,10 @@
 ﻿using System.Drawing;
 using System.Timers;
 using System.Windows.Forms;
+using Jedi.Views;
 using Timer = System.Timers.Timer;
 
-namespace Jedi
+namespace Jedi.Services
 {
 	public class MouseDisabler
 	{

@@ -1,35 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
+﻿using System.Linq;
+using Jedi.Entities;
+using Jedi.Services;
+using Jedi.Views;
 
-namespace Jedi
+namespace Jedi.Presenters
 {
 	public class MainFormPresenter
 	{
 		private const string MOUSELESS_MODE_INSTRUCTIONS =
 			"Mouseless Mode on [{0}].\n Press Ctrl+Alt+Shift+F12 to regain mouse control.";
 
-		private readonly List<KeyViewModel> keys = new List<KeyViewModel>();
-		private readonly string mouselessModeKey;
+		private readonly KeyMessageCollector keyMessageCollector = new KeyMessageCollector();
 
-		private readonly Dictionary<int, string> positionColors =
-			new Dictionary<int, string>
-				{
-					{0, "#000000"},
-					{-1, "#151515"},
-					{-2, "#2A2A2A"},
-					{-3, "#3F3F3F"},
-					{1, "#555555"},
-					{2, "#6A6A6A"},
-					{3, "#7F7F7F"},
-					{4, "#949494"},
-					{5, "#AAAAAA"},
-					{6, "#BFBFBF"},
-					{7, "#D4D4D4"},
-					{8, "#E9E9E9"},
-					{9, "#E9E9E9"},
-					{10, "#E9E9E9"}
-				};
+		private readonly string mouselessModeKey;
 
 		private readonly IJediSettings settings;
 		private readonly IMainFormView view;
@@ -45,7 +28,7 @@ namespace Jedi
 
 		public void HandleLoad()
 		{
-			view.DisplayKeys(keys);
+			DisplayKeys();
 			view.SetOpacity(settings.Opacity);
 			view.SetFont(settings.Font);
 			view.Refresh();
@@ -63,27 +46,13 @@ namespace Jedi
 			{
 				ToggleMouselessMode();
 			}
-			AddMessage(msg);
+			keyMessageCollector.AddMessage(msg);
 			DisplayKeys();
-		}
-
-		private void AddMessage(string message)
-		{
-			keys.Insert(0, new KeyViewModel {Text = message});
-			while (keys.Count > 10)
-			{
-				keys.RemoveAt(10);
-			}
 		}
 
 		private void DisplayKeys()
 		{
-			for (int i = 0; i < keys.Count; i++)
-			{
-				string positionColor = positionColors[i];
-				keys[i].Color = ColorTranslator.FromHtml(positionColor);
-			}
-			view.DisplayKeys(keys);
+			view.DisplayKeys(keyMessageCollector.GetMessagesForDisplay());
 		}
 
 		private bool IsMsgMouselessModeKey(string msg)

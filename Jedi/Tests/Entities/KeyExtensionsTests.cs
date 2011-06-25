@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
-using Jedi;
+using Jedi.Entities;
 using NUnit.Framework;
 
-namespace Tests
+namespace Tests.Entities
 {
 	[TestFixture]
 	public class KeyExtensionsTests
