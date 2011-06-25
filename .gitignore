@@ -1,0 +1,5 @@
+*.user
+obj
+bin
+_ReSharper*
+*.suo

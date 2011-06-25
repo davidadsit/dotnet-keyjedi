@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Jedi.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="VisualStudioOnly" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowTabs" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowPageUpDown" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowEnter" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Opacity" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="MouselessModeKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Ctrl+Shift+Alt+F12</Value>
+    </Setting>
+    <Setting Name="ListFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Tahoma, 18pt, style=Bold</Value>
+    </Setting>
+    <Setting Name="ForeColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">WindowText</Value>
+    </Setting>
+    <Setting Name="BackColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">Window</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
