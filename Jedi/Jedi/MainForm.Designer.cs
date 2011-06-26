@@ -33,7 +33,7 @@ namespace JediUI
         {
 			this.components = new System.ComponentModel.Container();
 			this.label1 = new System.Windows.Forms.Label();
-			this.trackBar1 = new System.Windows.Forms.TrackBar();
+			this.OpacityTrackBar = new System.Windows.Forms.TrackBar();
 			this.mnuList = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.setMemoOnThisItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.copyAllMemosToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +42,7 @@ namespace JediUI
 			this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.KeysListView = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.OpacityTrackBar)).BeginInit();
 			this.mnuList.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -61,20 +61,20 @@ namespace JediUI
 			// 
 			// trackBar1
 			// 
-			this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			this.OpacityTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.trackBar1.BackColor = System.Drawing.Color.White;
-			this.trackBar1.LargeChange = 10;
-			this.trackBar1.Location = new System.Drawing.Point(0, 210);
-			this.trackBar1.Maximum = 100;
-			this.trackBar1.Minimum = 10;
-			this.trackBar1.Name = "trackBar1";
-			this.trackBar1.Size = new System.Drawing.Size(276, 45);
-			this.trackBar1.SmallChange = 5;
-			this.trackBar1.TabIndex = 1;
-			this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.trackBar1.Value = 50;
-			this.trackBar1.Scroll += new System.EventHandler(this.TrackBar1Scroll);
+			this.OpacityTrackBar.BackColor = System.Drawing.Color.White;
+			this.OpacityTrackBar.LargeChange = 10;
+			this.OpacityTrackBar.Location = new System.Drawing.Point(0, 210);
+			this.OpacityTrackBar.Maximum = 100;
+			this.OpacityTrackBar.Minimum = 10;
+			this.OpacityTrackBar.Name = "OpacityTrackBar";
+			this.OpacityTrackBar.Size = new System.Drawing.Size(276, 45);
+			this.OpacityTrackBar.SmallChange = 5;
+			this.OpacityTrackBar.TabIndex = 1;
+			this.OpacityTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+			this.OpacityTrackBar.Value = 50;
+			this.OpacityTrackBar.Scroll += new System.EventHandler(this.OpacityTrackBarScroll);
 			// 
 			// mnuList
 			// 
@@ -145,7 +145,7 @@ namespace JediUI
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(275, 236);
-			this.Controls.Add(this.trackBar1);
+			this.Controls.Add(this.OpacityTrackBar);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.KeysListView);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -159,7 +159,7 @@ namespace JediUI
 			this.TopMost = true;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
 			this.Load += new System.EventHandler(this.MainFormLoad);
-			((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.OpacityTrackBar)).EndInit();
 			this.mnuList.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -169,7 +169,7 @@ namespace JediUI
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar OpacityTrackBar;
         private System.Windows.Forms.ToolStripMenuItem setMemoOnThisItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyAllMemosToClipboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mouselessModeOnOffToolStripMenuItem;

@@ -17,5 +17,6 @@ namespace Jedi.Views
 		void Refresh();
 		void SetFont(Font font);
 		void SetOpacity(double opacity);
+		int GetTrackBarPosition();
 	}
 }

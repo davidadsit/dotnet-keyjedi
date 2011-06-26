@@ -81,6 +81,11 @@ namespace JediUI
 			Opacity = opacity;
 		}
 
+		public int GetTrackBarPosition()
+		{
+			return OpacityTrackBar.Value;
+		}
+
 		private void AddText(string message)
 		{
 			if (Focused || (message == null))
@@ -182,9 +187,9 @@ namespace JediUI
 			SetMemoOnSelectedItem();
 		}
 
-		private void TrackBar1Scroll(object sender, EventArgs e)
+		private void OpacityTrackBarScroll(object sender, EventArgs e)
 		{
-			Opacity = trackBar1.Value / 100f;
+			presenter.HandleOpacityTrackBarChange();
 		}
 
 		private void mgr_OnShortcutActivated(string msg)

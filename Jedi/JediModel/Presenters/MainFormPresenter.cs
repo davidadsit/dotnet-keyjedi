@@ -40,6 +40,11 @@ namespace Jedi.Presenters
 			ToggleMouselessMode();
 		}
 
+		public void HandleOpacityTrackBarChange()
+		{
+			view.SetOpacity(view.GetTrackBarPosition() / 100f);
+		}
+
 		public void HandleShortcut(string msg)
 		{
 			if (IsMsgMouselessModeKey(msg))
