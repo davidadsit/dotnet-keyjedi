@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\IJediSettings.cs" />
+    <Compile Include="Services\ShortcutMemorizer.cs" />
     <Compile Include="Views\IMainFormView.cs" />
     <Compile Include="Entities\KeyExtensions.cs" />
     <Compile Include="Entities\KeyMessageCollector.cs" />

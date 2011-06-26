@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Jedi;
 using Jedi.Presenters;
+using Jedi.Services;
 using Jedi.ViewModels;
 using Jedi.Views;
 using JediUI.Properties;
@@ -107,7 +108,7 @@ namespace JediUI
 
 		private void CopyAllMemosToClipboardToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			memos.SetCliboardToMemos();
+			memos.SetMemosToCliboard();
 		}
 
 
